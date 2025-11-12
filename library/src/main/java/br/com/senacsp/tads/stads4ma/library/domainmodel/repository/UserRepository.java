@@ -14,6 +14,8 @@ public interface UserRepository extends JpaRepository<User, UUID> {
     List<User> findByEmail(String email);
     List<User> findByNameAndEmail(String name, String email);
     List<User> findByPosts(List<Post> posts);
+    List<User> findByName(List<Post> posts);
+
 
     @Query("SELECT u FROM User u WHERE u.name = :name")
     Optional<User> findByName(String nome);

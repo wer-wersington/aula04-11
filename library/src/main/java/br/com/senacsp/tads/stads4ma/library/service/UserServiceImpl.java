@@ -3,6 +3,7 @@ package br.com.senacsp.tads.stads4ma.library.service;
 import br.com.senacsp.tads.stads4ma.library.domainmodel.User;
 import br.com.senacsp.tads.stads4ma.library.domainmodel.repository.NonPersistentUserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -47,5 +48,7 @@ public class UserServiceImpl implements UserService{
         return this.userRepository.update(databaseUser);
     }
 
-
+    public UserDetails loadUserByName(String User name){
+        return (UserDetails) this.userRepository.findByName()
+    }
 }
